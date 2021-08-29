@@ -1,0 +1,11 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Title : <%= @job.title %></h1>
+    <br><br>
+    <p class="lead">Description : <%= @job.description %></p>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_job_path(@job),class:"btn btn-secondary" %> |
+<%= link_to 'Back', jobs_path,class:"btn btn-secondary" %>

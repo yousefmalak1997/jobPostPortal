@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jobs Applications</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Users</th>
+      <th>Jobs</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs_applications.each do |jobs_application| %>
+      <% if current_user.id == jobs_application.users_id or current_user.role == 1 %>
+        <tr>
+          <td><%= jobs_application.users_id %></td>
+          <td><%= jobs_application.jobs_id %></td>
+          <td><%= jobs_application.status %></td>
+          <td><%= link_to 'Show', jobs_application %></td>
+          <td><%= link_to 'Destroy', jobs_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

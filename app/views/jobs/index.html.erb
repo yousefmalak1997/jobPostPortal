@@ -1,0 +1,32 @@
+
+<h1>Jobs</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Job Title</th>
+      <th>Job Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.description %></td>
+        <td><%= link_to 'Show Job Details', job %></td>
+        <% if current_user.role == 1 %>
+          <td><%= link_to 'Edit Job Details', edit_job_path(job) %></td>
+          <td><%= link_to 'Delete Job', job, method: :delete, data: { confirm: 'Are you sure you want to delete this job?' } %></td>
+        <%else%>
+          <td><%= link_to 'Apply Job', jobs_applications_path(:jobs_application => { :users_id => current_user.id , :jobs_id => job.id , :status => 1 }) ,method: :post %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a New Job', new_job_path ,class:"btn btn-secondary" %>

@@ -1,0 +1,2 @@
+module JobsApplicationsHelper
+end

@@ -1,0 +1,30 @@
+<%= form_with(model: jobs_application) do |form| %>
+
+  <% if jobs_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jobs_application.errors.count, "error") %> prohibited this jobs_application from being saved:</h2>
+
+      <ul>
+        <% jobs_application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :users_id , value: current_user.id , type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :jobs_id , value: params[:job_id] , type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :status , value: 1 , type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

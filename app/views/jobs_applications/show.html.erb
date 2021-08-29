@@ -1,0 +1,12 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Application Details:</h1>
+    <br><br>
+    <p class="lead">User : <%= @jobs_application.users_id %></p>
+    <p class="lead">Job Id : <%= @jobs_application.jobs_id %></p>
+    <p class="lead">Status : <%= @jobs_application.status %></p>
+  </div>
+</div>
+
+<%= link_to 'Back', jobs_applications_path %>
